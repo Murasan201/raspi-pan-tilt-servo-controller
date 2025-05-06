@@ -26,18 +26,28 @@ Python application for controlling SG90 pan-tilt servos with the Adafruit 16-Cha
    ```bash
    sudo apt update
    ```
-2. Install dependencies:
+2. Install system dependencies:
    ```bash
-   sudo apt install -y python3-pip i2c-tools
+   sudo apt install -y python3-pip python3-venv i2c-tools
    ```
 3. Enable I2C interface if not already enabled:
    ```bash
    sudo raspi-config
    # Navigate to Interface Options -> I2C -> Enable
    ```
-4. Install the ServoKit library:
+4. Create and activate a Python virtual environment (recommended):
    ```bash
-   sudo pip3 install adafruit-circuitpython-servokit
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+5. Install required Python libraries:
+   ```bash
+   pip install adafruit-blinka adafruit-circuitpython-servokit
+   ```
+
+Alternatively, to install system-wide (if not using a virtual environment):
+   ```bash
+   sudo python3 -m pip install adafruit-blinka adafruit-circuitpython-servokit --break-system-packages
    ```
 
 ## Usage
